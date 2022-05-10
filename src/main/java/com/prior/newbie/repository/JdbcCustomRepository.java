@@ -21,7 +21,7 @@ public class JdbcCustomRepository {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(People.class));
     }
 
-    public People findByCid(String cid) {
+    public People findById(String cid) {
         System.out.println("######## get people by cid jdbcTemplate ########");
         String sql = "SELECT CID, TITLE, FIRSTNAME, LASTNAME, MIDDLE_NAME, MOBILE, GENDER, BIRTH_DATE, IS_DELETED, CREATED_BY, CREATED_DATE, UPDATE_BY, UPDATE_DATE " +
                      "FROM PEOPLE " +
@@ -32,8 +32,7 @@ public class JdbcCustomRepository {
     //create information in table people
     public String createPeople(People people){
         System.out.println("######## create people jdbcTemplate ########");
-        String sql = "INSERT INTO PEOPLE (CID, TITLE, FIRSTNAME, LASTNAME, MIDDLE_NAME, MOBILE, GENDER, BIRTH_DATE, IS_DELETED, CREATED_BY, CREATED_DATE, UPDATE_BY, UPDATE_DATE) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PEOPLE (CID, TITLE, FIRSTNAME, LASTNAME, MIDDLE_NAME, MOBILE, GENDER, BIRTH_DATE, IS_DELETED, CREATED_BY, CREATED_DATE, UPDATE_BY, UPDATE_DATE) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, people.getCid(), people.getTitle(), people.getFirstname(), people.getLastname(),
                 people.getMiddle_name(), people.getMobile(), people.getGender(), people.getBirth_date(), people.getIs_deleted(),
                 people.getCreated_by(), people.getCreated_date(), people.getUpdate_by(),people.getUpdate_date());
