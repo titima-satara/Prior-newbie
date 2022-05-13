@@ -1,12 +1,14 @@
 package com.prior.newbie.entities;
 
-public class Train {
+public class Train2 {
     public String createdAt;
     public String name;
     public String avatar;
     public int rank;
     public String colorCode;
-    public String id;
+
+    public String colorName;
+    public String colorDecimal;
 
     public String getCreatedAt() {
         return createdAt;
@@ -48,6 +50,22 @@ public class Train {
         this.colorCode = colorCode;
     }
 
+    public String getColorName() {
+        return colorName;
+    }
+
+    public void setColorName(String colorName) {
+        this.colorName = colorName;
+    }
+
+    public String getColorDecimal() {
+        return colorDecimal;
+    }
+
+    public void setColorDecimal(String colorDecimal) {
+        this.colorDecimal = colorDecimal;
+    }
+
     public String getId() {
         return id;
     }
@@ -55,4 +73,6 @@ public class Train {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String id;
 }
